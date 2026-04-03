@@ -21,7 +21,149 @@
 *This guide is licensed under [Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)](https://creativecommons.org/licenses/by-nd/4.0/).*
 
 *You are free to copy and share this guide in any format, provided you credit the original author. Translations into other languages are permitted. Modifications to the content are not permitted.*
- 
+
+<a name="top"></a>
+
+## Table of Contents
+
+- [1.0 Introducing BASIC](#10-introducing-basic)
+  - [1.1 About BazzBasic](#11-about-bazzbasic)
+  - [1.2 Who is BazzBasic for?](#12-who-is-bazzbasic-for)
+- [2.1 How To Use BazzBasic](#21-how-to-use-bazzbasic)
+  - [2.2 Install](#22-install)
+  - [2.3 First Use](#23-first-use)
+  - [2.4 Using the Built-in IDE](#24-using-the-built-in-ide)
+  - [2.5 First Program](#25-first-program)
+- [3.1 Interaction](#31-interaction)
+  - [3.2 INPUT & PRINT](#32-input--print)
+  - [3.3 name$](#33-name)
+- [4.1 Data Types](#41-data-types)
+  - [4.2 Variables](#42-variables)
+  - [4.3 Constants](#43-constants)
+  - [4.4 Arrays](#44-arrays)
+  - [4.5 Working with Values](#45-working-with-values)
+  - [4.6 Declaring Without a Value](#46-declaring-without-a-value)
+  - [4.7 Reading Multiple Values From an Array](#47-reading-multiple-values-from-an-array)
+  - [4.8 Choosing the Right Tool](#48-choosing-the-right-tool)
+- [5.0 Program Structure](#50-program-structure)
+  - [5.1 A Common Structure](#51-a-common-structure)
+  - [5.2 It's a Convention, Not a Rule](#52-its-a-convention-not-a-rule)
+- [6.0 Your First Game](#60-your-first-game)
+  - [6.1 Doing Things More Than Once with FOR](#61-doing-things-more-than-once-with-for)
+  - [6.2 Making Decisions with IF](#62-making-decisions-with-if)
+  - [6.3 The Game](#63-the-game)
+  - [6.4 Walking Through It](#64-walking-through-it)
+  - [6.5 Try It Yourself](#65-try-it-yourself)
+- [7.0 Reality Check](#70-reality-check)
+  - [7.1 A Word From Author](#71-a-word-from-author)
+- [8.0 More Loops](#80-more-loops)
+  - [8.1 WHILE](#81-while)
+  - [8.2 FOR](#82-for)
+    - [8.2.1 Exception with FOR variable declaration](#821-exception-with-for-variable-declaration)
+  - [8.3 When to Use Which](#83-when-to-use-which)
+- [9.0 IF Conditions](#90-if-conditions)
+  - [9.1 IF - THEN - END IF](#91-if---then---end-if)
+    - [9.1.1 Comparison Operators](#911-comparison-operators)
+  - [9.2 IF - THEN - ELSEIF - ELSE - END IF](#92-if---then---elseif---else---end-if)
+  - [9.3 Nested IF](#93-nested-if)
+  - [9.4 One-liner form](#94-one-liner-form)
+  - [9.5 TRUE and FALSE](#95-true-and-false)
+- [10.0 Controlling The Screen](#100-controlling-the-screen)
+  - [10.1 PRINT](#101-print)
+    - [10.1.1 Escape sequences](#1011-escape-sequences)
+  - [10.2 INPUT and LINE INPUT](#102-input-and-line-input)
+  - [10.3 CLS](#103-cls)
+  - [10.4 LOCATE](#104-locate)
+  - [10.5 CURPOS](#105-curpos)
+  - [10.6 COLOR](#106-color)
+  - [10.7 A Practical Example](#107-a-practical-example)
+- [11.0 Controlling The Program](#110-controlling-the-program)
+  - [11.1 GOSUB](#111-gosub)
+    - [11.1.1 Why GOSUB Matters](#1111-why-gosub-matters)
+    - [11.1.2 GOSUB And Program Structure](#1112-gosub-and-program-structure)
+  - [11.2 GOTO](#112-goto)
+- [12.0 Putting It All Together](#120-putting-it-all-together)
+  - [12.1 A Quick Look at WAITKEY](#121-a-quick-look-at-waitkey)
+  - [12.2 Russian Roulette](#122-russian-roulette)
+  - [12.3 Walking Through It](#123-walking-through-it)
+- [13.0 User-Defined Functions](#130-user-defined-functions)
+  - [13.1 Defining and Calling](#131-defining-and-calling)
+  - [13.2 Parameters](#132-parameters)
+  - [13.3 Scope](#133-scope)
+  - [13.4 The Return Value Rule](#134-the-return-value-rule)
+  - [13.5 Recursion](#135-recursion)
+  - [13.6 GOSUB vs DEF FN](#136-gosub-vs-def-fn)
+- [14.0 User Input](#140-user-input)
+  - [14.1 WAITKEY](#141-waitkey)
+  - [14.2 INKEY](#142-inkey)
+  - [14.3 KEYDOWN](#143-keydown)
+  - [14.4 Key Constants](#144-key-constants)
+  - [14.5 Mouse](#145-mouse)
+  - [14.6 Choosing the Right Tool](#146-choosing-the-right-tool)
+- [15.0 Files](#150-files)
+  - [15.1 Reading Files](#151-reading-files)
+  - [15.2 Writing Files](#152-writing-files)
+  - [15.3 Checking and Deleting](#153-checking-and-deleting)
+  - [15.4 Key-Value Files](#154-key-value-files)
+  - [15.5 The .env Pattern](#155-the-env-pattern)
+  - [15.6 Paths](#156-paths)
+  - [15.7 A Practical Example](#157-a-practical-example)
+- [16.0 JSON and Arrays](#160-json-and-arrays)
+  - [16.1 What Is JSON](#161-what-is-json)
+  - [16.2 Array to JSON](#162-array-to-json)
+  - [16.3 JSON to Array](#163-json-to-array)
+  - [16.4 Nested Data](#164-nested-data)
+  - [16.5 JSON Files](#165-json-files)
+  - [16.6 Putting It Together](#166-putting-it-together)
+- [17.0 Network](#170-network)
+  - [17.1 HTTPGET](#171-httpget)
+  - [17.2 HTTPPOST](#172-httppost)
+  - [17.3 Headers](#173-headers)
+  - [17.4 Working With Responses](#174-working-with-responses)
+  - [17.5 Putting It All Together](#175-putting-it-all-together)
+- [18.0 Graphics and Sound](#180-graphics-and-sound)
+  - [18.1 Opening a Screen](#181-opening-a-screen)
+  - [18.2 Drawing](#182-drawing)
+  - [18.3 Shapes and Images](#183-shapes-and-images)
+  - [18.4 SCREENLOCK](#184-screenlock)
+  - [18.5 The Game Loop](#185-the-game-loop)
+  - [18.6 Sound](#186-sound)
+  - [18.7 A Complete Example: Bouncing Ball](#187-a-complete-example-bouncing-ball)
+  - [18.8 FastTrig For Performance](#188-fasttrig-for-performance)
+  - [18.9 What BazzBasic Can Do](#189-what-bazzbasic-can-do)
+    - [18.9.1 2D Field of View in console](#1891-2d-field-of-view-in-console)
+    - [18.9.2 Wolfenstein-style 3D Raycaster](#1892-wolfenstein-style-3d-raycaster)
+    - [18.9.3 Comanche-style Voxel Terrain](#1893-comanche-style-voxel-terrain)
+- [19.0 Shelling Around](#190-shelling-around)
+  - [19.1 What You Can Do With It](#191-what-you-can-do-with-it)
+  - [19.2 Why This Matters](#192-why-this-matters)
+    - [19.2.1 Note About Linux Compatibility](#1921-note-about-linux-compatibility)
+- [20.0 BazzBasic Libraries](#200-bazzbasic-libraries)
+  - [20.0.1 What is a Library?](#2001-what-is-a-library)
+  - [20.0.2 Creating a Library](#2002-creating-a-library)
+  - [20.0.3 Naming Convention](#2003-naming-convention)
+  - [20.0.4 Accessing Main Program Constants](#2004-accessing-main-program-constants)
+  - [20.0.5 Library Rules](#2005-library-rules)
+  - [20.0.6 Error Handling](#2006-error-handling)
+  - [20.0.7 Benefits of Libraries](#2007-benefits-of-libraries)
+  - [20.0.8 Distributing Libraries](#2008-distributing-libraries)
+- [21.0 Compiling to EXE](#210-compiling-to-exe)
+  - [21.0.1 Usage](#2101-usage)
+  - [21.0.2 Required Files for Distribution](#2102-required-files-for-distribution)
+  - [21.0.3 Recommended Distribution with Assets](#2103-recommended-distribution-with-assets)
+  - [21.0.4 Where to Find SDL2.dll](#2104-where-to-find-sdl2dll)
+  - [21.0.5 Notes](#2105-notes)
+  - [21.0.6 .NET Runtime Requirement](#2106-net-runtime-requirement)
+- [22.0 AI-Assisted Learning](#220-ai-assisted-learning)
+- [23.0 More Functions and Features](#230-more-functions-and-features)
+  - [23.1 Mathematical Functions](#231-mathematical-functions)
+  - [23.2 String Functions](#232-string-functions)
+  - [23.3 Other Functions](#233-other-functions)
+  - [23.4 Links](#234-links)
+- [24.0 Final Words](#240-final-words)
+
+---
+
 ## 1.0 Introducing BASIC
 
 The first version of the BASIC language was Dartmouth BASIC.
@@ -41,6 +183,10 @@ The death of BASIC has been predicted for almost as long as it has existed. At t
 However, FreeBasic, QB64, PureBasic, TrueBasic, YaBasic, etc. have all continued the BASIC story, and many implementations can still be found today.
 
 BASIC is rarely the programming language with which to start building professional software. But it is still an effective way to get started and become a **capable amateur** in the field.
+
+[↑ Back to top](#top)
+
+---
 
 ### 1.1 About BazzBasic
 
@@ -83,6 +229,10 @@ LET a$ = "String"
 a$ = 123
 ```
 
+[↑ Back to top](#top)
+
+---
+ 
 ### 1.2 Who is BazzBasic for?
 
 BazzBasic is especially suitable for those who are just starting to learn programming. It is also an excellent alternative for those who have programmed in an older, a now perhaps outdated BASIC language.
@@ -104,30 +254,48 @@ BazzBasic is free, its source code is available to everyone, and you have no res
 
 BazzBasic does not aim to be the only language you will ever need. It wants to help you get started, learn programming, maybe find friends in programming communities, and eventually perhaps move on to a more powerful language - just like the BASIC interpreters on home computers in the 80s once did.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ## 2.1 How To Use BazzBasic
 
 To download the latest version of BazzBasic, go to this URL with your web browser: https://ekbass.github.io/BazzBasic/
 
 From there, choose *"Downloads"* and download the latest version as a *zip archive* to your computer.
 
+[↑ Back to top](#top)
+
+---
+ 
 ### 2.2 Install
 
 BazzBasic does not require you to install anything. Everything is included in the *zip archive* you just downloaded.
 
 Unpack the archive to a folder of your choice and you are ready to go.
 
+[↑ Back to top](#top)
+
+---
+ 
 ### 2.3 First Use
 
 In the folder, you see *"bazzbasic.exe"*. Just double-click it and the BazzBasic IDE opens on your screen.
 
+[↑ Back to top](#top)
+
+---
+ 
 ### 2.4 Using the Built-in IDE
 
 While the built-in IDE offers everything you need to start programming, there are also BazzBasic syntax files for *Geany, Notepad++, and VS Code*. See the subfolder *extras*.
 
 The IDE itself includes only a minimal set of features. They are common editor options and should not cause any problems.
 
+[↑ Back to top](#top)
+
+---
+ 
 ### 2.5 First Program
 
 Type your first line of BazzBasic code:
@@ -148,8 +316,10 @@ You have just:
 1. Made sure everything works
 2. Created your first BazzBasic program
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ## 3.1 Interaction
 
 Surely you already know how to edit the output of the program you just wrote? Just edit the text inside the quotes and it will work.
@@ -164,6 +334,10 @@ LET a$ = WAITKEY()
 
 But printing text on screen gets boring pretty quickly, so let's move on and examine the keyword *INPUT*.
 
+[↑ Back to top](#top)
+
+---
+ 
 ### 3.2 INPUT & PRINT
 
 *INPUT* is a useful way to read input from the user. It also stores the input value in a variable for later use.
@@ -183,6 +357,10 @@ What is your first name? <your response here>
 Hello <your response here>
 ```
 
+[↑ Back to top](#top)
+
+---
+ 
 ### 3.3 name$
 
 You noticed an interesting piece of text in the code, *"name$"*?
@@ -196,16 +374,20 @@ You have just:
 1. Received INPUT from the user
 2. Stored your first data to a variable
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ## 4.1 Data Types
 
 Programs need to remember things. The player's score. A name. Whether a door is open or closed. How many coins are left.
 
 Everything your program remembers lives somewhere in memory, and BazzBasic gives you three ways to work with it: **variables**, **constants**, and **arrays**. Each one has its place, and knowing when to use which one is one of those small skills that quietly makes your code much nicer.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 4.2 Variables
 
 You already met variables back in chapter 3. Let's get properly introduced.
@@ -237,8 +419,10 @@ thing$ = "forty-two"
 
 That said, mixing types in the same variable tends to confuse *you* more than the interpreter, so keep things consistent. Your future self will thank you.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 4.3 Constants
 
 Some things don't change. The width of your game screen. The value of pi. The maximum number of enemies allowed on screen at once or the title of your game.
@@ -269,8 +453,10 @@ PRINT TRUE        ' 1
 PRINT FALSE       ' 0
 ```
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 4.4 Arrays
 
 Variables and constants store one thing at a time. But what if you need to remember a whole shopping list? Or the stats for every enemy in a room? Or the letters typed by the player?
@@ -327,8 +513,10 @@ DIM board$
 ```
 
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 4.5 Working with Values
 
 Storing a value is useful. Doing something with it is where things get interesting.
@@ -358,8 +546,10 @@ PRINT "Total score: "; total$   ' Total score: 170
 
 This is one of the reasons constants are worth the effort. `score$ + BONUS#` reads like a sentence. `score$ + 50` leaves you guessing what that 50 is supposed to mean.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 4.6 Declaring Without a Value
 
 Sometimes you know a variable will be needed later, but you don't have a value for it yet. That is completely fine - just declare it empty:
@@ -380,8 +570,10 @@ total$ = total$ + 10   ' perfectly fine - starts at 0
 PRINT total$           ' 10
 ```
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 4.7 Reading Multiple Values From an Array
 
 Arrays really show their usefulness when you start pulling several values out together:
@@ -408,8 +600,10 @@ PRINT "Round 1: " + scores$(0) + "  Round 2: " + scores$(1)
 
 One thing worth knowing: if you try to read a key that doesn't exist yet, BazzBasic won't be happy about it. When in doubt, check first with `HASKEY` - you already saw that in the previous section.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 4.8 Choosing the Right Tool
 
 It's worth pausing for a second and thinking about which of the three to reach for:
@@ -420,8 +614,10 @@ It's worth pausing for a second and thinking about which of the three to reach f
 
 Getting this right won't make your program run faster, but it will make it easier to read, easier to fix, and more enjoyable to work on. And that matters more than you might think.
 
---
+[↑ Back to top](#top)
 
+---
+ 
 ## 5.0 Program Structure
 
 Before we go any further, let's take a small step back and look at the bigger picture.
@@ -438,8 +634,10 @@ A label looks like this:
 
 It's just a name in square brackets - a landmark, a way of saying *'this is where this part of the program lives'*.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 5.1 A Common Structure
 
 Most BazzBasic programs follow a simple pattern:
@@ -473,8 +671,10 @@ Let's look at what each part is for.
 
 **`[sub:something]`** We'll come back to  it when we cover subroutines.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 5.2 It's a Convention, Not a Rule
 
 Here's something important: BazzBasic does not *require* you to use this structure. Labels are not mandatory. A simple one-page program might not need them at all.
@@ -495,8 +695,10 @@ As a starting point though, **`[inits]`**, **`[main]`**, and when needed **`[out
 
 We will add more sections to this structure later - as the programs we write start to grow and deserve them.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ## 6.0 Your First Game
 
 You now know enough to build something that actually feels like a program.
@@ -509,8 +711,10 @@ Here is what we are going to make:
 
 Simple. But to build it, you will need almost everything you have learned so far: variables, constants, an array, INPUT, PRINT, labels - and two new things: **FOR** and **IF**.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 6.1 Doing Things More Than Once with FOR
 
 Sometimes you need to do the same thing several times. Throw a die three times. Print ten numbers. Check every item in a list.
@@ -568,8 +772,10 @@ NEXT
 
 Three dice thrown, three results stored, four lines of code. That is the idea.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 6.2 Making Decisions with IF
 
 Programs need to make choices. Is the player's guess correct? Is the score high enough? Is the game over?
@@ -618,8 +824,10 @@ IF lives$ = 0 THEN PRINT "Game over."
 
 That is all you need to know about IF for now. Let's use it.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 6.3 The Game
 
 Here is the complete program. Read through it once before we walk through it together.
@@ -680,8 +888,10 @@ Here is the complete program. Read through it once before we walk through it tog
 END
 ```
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 6.4 Walking Through It
 
 Let's look at what each part does.
@@ -694,8 +904,10 @@ Let's look at what each part does.
 
 Finally, an `IF` tells the player whether they guessed correctly. `WAITKEY()` holds the console open so the result can be read before the window closes.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 6.5 Try It Yourself
 
 Run the program a few times and watch what happens.
@@ -714,10 +926,16 @@ You have just built:
 
 That is more than it might seem. This same structure - collect data, loop to find something, then report - appears in programs of every size and kind.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ## 7.0 Reality Check
 
+[↑ Back to top](#top)
+
+---
+ 
 ### 7.1 A Word From Author
 
 I am writing this chapter because I want to tell you honestly what programming is.
@@ -747,8 +965,10 @@ When you start planning a program, think about what it needs to do:
 
 Once you have those answers, the right variables, constants, and arrays will start suggesting themselves naturally.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ## 8.0 More Loops
 
 You have already used a `FOR` loop in chapter 6. It did exactly what you needed: it ran the same block of code a set number of times and kept count.
@@ -759,8 +979,10 @@ Sometimes you do not know in advance how many times something needs to happen. Y
 
 That is what this chapter is about: understanding both kinds of loop properly, and knowing which one to reach for.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 8.1 WHILE
 
 `WHILE` is the simpler of the two to describe. It checks a condition, and as long as that condition is true, it runs the block of code inside it. When the condition becomes false, it stops.
@@ -819,8 +1041,10 @@ WEND
 
 `WHILE TRUE` never stops on its own - the condition is always true. Here, `END` exits the program when the player guesses correctly. You will see this pattern often in game loops and menu systems.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 8.2 FOR
 
 You have already met `FOR`. Let's look at it properly now.
@@ -893,12 +1117,19 @@ Output: 1: 1, 2: 4, 3: 9, 4: 16, 5: 25. Squares of 1 through 5.
 
 And just like any variable, `i$` keeps its last value after the loop finishes. Usually you do not need that, but it is worth knowing.
 
+[↑ Back to top](#top)
+
+---
+ 
 #### 8.2.1 Exception with FOR variable declaration
 
 BazzBasic generally demands, that variables must be declared with LET before they can be used.  
 With FOR, there is an exception: FOR can declare the variable itself. You do not need to.
 
+[↑ Back to top](#top)
+
 ---
+ 
 
 ### 8.3 When to Use Which
 
@@ -928,16 +1159,20 @@ NEXT
 
 The inner loop completes fully for every single step of the outer loop. Three rows, three columns each: nine combinations total.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ## 9.0 IF Conditions
 
 You have already used `IF` in chapter 6. It made a simple decision: was the player's guess correct or not?
 
 That was enough for the moment. But `IF` can do considerably more than that, and now that you are writing programs with loops and more moving parts, it is worth understanding it properly.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 9.1 IF - THEN - END IF
 
 The basic form you already know:
@@ -952,8 +1187,10 @@ BazzBasic evaluates the condition between `IF` and `THEN`. If it is true, everyt
 
 `ENDIF` also works as a single word - both are accepted.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 #### 9.1.1 Comparison Operators
 
 These are the tools you use to build conditions:
@@ -989,8 +1226,10 @@ END IF
 
 `AND` requires both conditions to be true. `OR` requires at least one. You can chain more than two, but keep it readable - if a condition is getting long and tangled, that is usually a sign it wants to be broken apart.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 9.2 IF - THEN - ELSEIF - ELSE - END IF
 
 When you have more than two possible outcomes, `ELSEIF` lets you chain conditions together:
@@ -1011,8 +1250,10 @@ BazzBasic checks from the top down. The moment it finds a condition that is true
 
 `ELSE` at the end is optional. It is the fallback - it runs if none of the conditions above were true. If you leave it out and nothing matches, the whole structure is simply skipped.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 9.3 Nested IF
 
 You can place an `IF` inside another `IF`. This is called nesting, and it is completely natural:
@@ -1033,8 +1274,10 @@ Each `IF` has its own `END IF`. BazzBasic matches them from the inside out, so t
 
 Nesting works, but be careful not to go too many levels deep. Three levels in, the logic starts becoming hard to follow - for you as much as anyone else. If you find yourself deeply nested, it is often a sign the logic can be reorganised.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 9.4 One-liner form
 
 For short, simple checks, you can write everything on a single line:
@@ -1053,8 +1296,10 @@ IF door$ = "open" THEN PRINT "You walk through." ELSE PRINT "The door is locked.
 
 Again, fine for simple cases. If it starts feeling crowded, expand it into a block.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 9.5 TRUE and FALSE
 
 BazzBasic has built-in constants `TRUE` and `FALSE`. Under the hood, `TRUE` is `1` and `FALSE` is `0`, which means comparisons like these both work:
@@ -1068,16 +1313,20 @@ Both are identical. The second form - checking the variable directly without com
 
 Similarly, `IF NOT running$ THEN` is equivalent to `IF running$ = FALSE THEN`. Either style is fine.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ## 10.0 Controlling The Screen
 
 So far your programs have scrolled text down the console one line at a time. That works fine for simple output, but it has limits. A scoreboard that rewrites itself in place feels very different from one that just keeps printing new lines. A menu with colored options feels very different from plain white text on black.
 
 This chapter gives you proper control over the console: where text appears, what color it is, and how the screen is managed. You have already used `PRINT` and `INPUT` throughout the guide - here you will learn what they can actually do.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 10.1 PRINT
 
 You know the basics. Time for the rest of it.
@@ -1106,8 +1355,10 @@ Output: `Loading... Done.` - all on one line, because each `PRINT` picked up exa
 
 This becomes useful when you want to build output piece by piece without jumping to a new line each time.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 #### 10.1.1 Escape sequences
 **These sequences live inside strings and give you a few extra tools:**
 
@@ -1128,8 +1379,10 @@ Name:   Alice
 Score:  100
 ```
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 10.2 INPUT and LINE INPUT
 
 `INPUT` has one behaviour worth knowing more clearly: it splits the user's response on **whitespace and commas**. That means it can read several values from a single line:
@@ -1152,8 +1405,10 @@ PRINT "Hello, " + fullName$
 
 `LINE INPUT` reads the entire line as-is, spaces and all, into a single variable.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 10.3 CLS
 
 `CLS` clears the entire console screen:
@@ -1169,8 +1424,10 @@ Simple and blunt. Everything that was on screen is gone, the cursor moves back t
 
 Use `CLS` when you want a completely clean slate - between menu screens, at the start of a new round, or whenever old output would just get in the way.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 10.4 LOCATE
 
 `CLS` clears everything. `LOCATE` is more surgical - it moves the cursor to a specific position without touching anything else:
@@ -1208,8 +1465,10 @@ LOCATE 3, 1
 PRINT "Score: " + score$ + "   "    ' trailing spaces clear leftover digits
 ```
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 10.5 CURPOS
 
 `CURPOS` reads where the cursor currently is - the opposite of `LOCATE`:
@@ -1234,8 +1493,10 @@ LOCATE savedRow$, savedCol$
 
 On its own `CURPOS` is a small tool. Combined with `LOCATE` it gives you proper cursor management.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 10.6 COLOR
 
 `COLOR` sets the foreground and background colors for everything printed after it:
@@ -1264,8 +1525,10 @@ The first number is the **foreground** (text color), the second is the **backgro
 COLOR 7, 0    ' light gray on black - the default console look
 ```
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 10.7 A Practical Example
 
 Here is a small program that puts these tools together - a simple status display that updates in place:
@@ -1318,8 +1581,10 @@ The labels stay still. Only the numbers change. The screen never flickers. That 
 
 You now have full control over the console. Where text appears, what color it is, and how you manage what the screen shows at any given moment - all of it is in your hands.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ## 11.0 Controlling The Program
 
 You have been using labels since chapter 5. `[inits]`, `[main]`, `[output]` - they have been there all along, organising your code into named sections.
@@ -1328,8 +1593,10 @@ Until now, though, the program has simply fallen through them one after another 
 
 That changes here. `GOSUB` and `GOTO` let you jump to a label deliberately - and in the case of `GOSUB`, come back again when the work is done.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 11.1 GOSUB
 
 `GOSUB` jumps to a label, runs the code there, and returns to exactly where it left off when it hits a `RETURN`.
@@ -1352,8 +1619,10 @@ Back in main.
 
 Read it as task delegation: *go handle the greeting, then come back*. The `END` before `[sub:greet]` is important - without it, the program would fall into the subroutine a second time after `GOSUB` returns.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 #### 11.1.1 Why GOSUB Matters
 
 As programs grow, the same block of logic tends to appear in multiple places. Without *GOSUB* you copy and paste it - and then maintain three copies when something needs to change. With *GOSUB* you write it once and call it whenever needed:
@@ -1394,16 +1663,20 @@ RETURN
 
 The drawing logic lives in one place. Call it as many times as you like. Change it once and it changes everywhere.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 #### 11.1.2 GOSUB And Program Structure
 
 You already know the convention of naming subroutine labels `[sub:name]`. That is not a rule BazzBasic enforces - it is a habit worth keeping. It makes subroutines immediately recognisable when reading code, and separates them clearly from from section labels and section markers.
 
 Keep `END` before your subroutines. Everything between the last line of your main logic and `END` should be subroutines only - code that only runs when called, never by accident.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 11.2 GOTO
 
 `GOTO` jumps to a label without any intention of coming back. There is no `RETURN`. Execution simply continues from the new location.
@@ -1432,16 +1705,20 @@ That is readable and clear. For short, obvious jumps like this, it is acceptable
 
 That is the full picture of program flow control. `GOSUB` is your main tool for keeping code organised and reusable. `GOTO` is there when you need it, but rarely the first answer.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ## 12.0 Putting It All Together
 
 You now have a solid set of tools. Variables and constants. Arrays. Loops - both `FOR` and `WHILE`. Conditions with `IF`. Screen control with `LOCATE`, `COLOR`, and `CLS`. And program structure with `GOSUB`.
 
 Before we look at the game, one small addition is needed.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 12.1 A Quick Look at WAITKEY
 
 You have used `INPUT` to read text from the user. But sometimes you just want a single keypress - no typing, no Enter. That is what `WAITKEY` does.
@@ -1462,8 +1739,10 @@ Now the program waits specifically for 1 or 2. Any other key is ignored.
 
 Keyboard input has more to it than this - `INKEY`, `KEYDOWN`, key constants - and we will cover all of it properly later. For now, `WAITKEY` is all the game needs.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 12.2 Russian Roulette
 
 This game originally appeared in the book *BASIC Computer Games* published by Creative Computing in 1978. It is one of the oldest and simplest interactive programs ever written for home computers - and it makes a perfect example for everything you have learned.
@@ -1553,8 +1832,10 @@ RETURN
 RETURN
 ```
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 12.3 Walking Through It
 
 **`[inits]`** declares everything up front. The color constants keep the numbers readable throughout - `RED#` means something, `4` does not. The two flags `playing$` and `alive$` are the engine that drives the whole game.
@@ -1581,9 +1862,10 @@ You have just read and understood a complete game. Every line of it uses tools y
 
 That is all programming is, at any scale.
 
+[↑ Back to top](#top)
+
 ---
-
-
+ 
 ## 13.0 User-Defined Functions
 
 You already know `GOSUB`. It jumps to a subroutine, does some work, and comes back. That is useful - but subroutines share everything with the rest of the program. Every variable, every array. There is no boundary between them and the code that calls them.
@@ -1592,8 +1874,10 @@ Sometimes that shared access is exactly what you want. But sometimes you want so
 
 That is what `DEF FN` gives you.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 13.1 Defining and Calling
 
 A function is defined with `DEF FN` and closed with `END DEF`. The name follows the same rules as any variable - it ends with `$` just like any variable:
@@ -1612,8 +1896,10 @@ PRINT FN Double$(5)     ' prints 10
 
 Functions must be defined **before** they are called. The safest habit is to put all your function definitions at the top of the file, before `[inits]`.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 13.2 Parameters
 
 Parameters are the values you pass into a function. They are declared in the parentheses after the function name and behave like local variables - they only exist inside the function:
@@ -1653,8 +1939,10 @@ END DEF
     PRINT number$                    ' still 42 - unchanged
 ```
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 13.3 Scope
 
 This is the most important thing to understand about functions in BazzBasic.
@@ -1685,8 +1973,10 @@ END DEF
 
 This isolation is a feature, not a limitation. It means you can write a function and trust that it will behave the same way no matter where it is called from. Nothing outside can accidentally interfere with what is happening inside.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 13.4 The Return Value Rule
 
 Every function call produces a value. That value **must** be used. Calling a function and ignoring what it returns is an error:
@@ -1705,8 +1995,10 @@ LET temp$ = FN DoSomething$()
 
 This rule exists to keep things honest. If a function returns a value, something should be done with it.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 13.5 Recursion
 
 A function can call itself. This is called **recursion**, and it is one of the more elegant ideas in programming.
@@ -1758,8 +2050,10 @@ END
 
 Both give the same answer. The recursive version reads almost like the mathematical definition of Fibonacci. The iterative version is faster for large numbers because it does not build up a long chain of nested calls. Neither is wrong - they are different tools for the same job.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 13.6 GOSUB vs DEF FN
 
 Now that you have both, a simple guide for choosing between them:
@@ -1770,8 +2064,10 @@ Now that you have both, a simple guide for choosing between them:
 
 A good function could be lifted out of one program and dropped into another without changing a single line. A good subroutine is usually woven into the specific program it belongs to.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ## 14.0 User Input
 
 You have already used `INPUT` and got a brief introduction to `WAITKEY` in chapter 12. But there is a whole other side to user input that `INPUT` cannot handle at all.
@@ -1780,8 +2076,10 @@ You have already used `INPUT` and got a brief introduction to `WAITKEY` in chapt
 
 BazzBasic gives you several tools for different situations. This chapter covers all of them.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 14.1 WAITKEY
 
 You have already seen this one. `WAITKEY` stops the program and waits for a keypress. The moment a key is pressed, execution continues and the key value is returned:
@@ -1800,8 +2098,10 @@ Only those keys will be accepted. Anything else is silently ignored - the progra
 
 `WAITKEY` is the right tool for menus, title screens, and "press any key to continue" moments. The program has nothing to do until the user responds, so blocking is exactly what you want.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 14.2 INKEY
 
 `INKEY` is the non-blocking alternative. It checks whether a key is currently being pressed and returns its value immediately - or returns 0 if nothing is pressed:
@@ -1827,8 +2127,10 @@ The crucial difference from `WAITKEY`: `INKEY` never waits. It checks and moves 
 
 Each pass through the loop takes a snapshot of the keyboard at that instant. Pressed - act on it. Not pressed - continue anyway.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 14.3 KEYDOWN
 
 `KEYDOWN` checks whether a specific key is **held down** at the moment of the call:
@@ -1851,8 +2153,10 @@ A player holding Up and Right at the same time will move diagonally. `INKEY` cou
 
 **Important:** `KEYDOWN` only works in **graphics mode**. It requires a `SCREEN` command to have been called first. It will not function in a plain console program.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 14.4 Key Constants
 
 All three input methods work with the same set of built-in key constants. You have already seen `KEY_ESC#` and `KEY_1#`. Here is the full picture:
@@ -1875,8 +2179,10 @@ LET key$ = WAITKEY()
 PRINT "You pressed: " + CHR(key$)
 ```
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 14.5 Mouse
 
 The mouse gives you position and three buttons. All mouse input requires **graphics mode** - just like `KEYDOWN`, these only work after a `SCREEN` command.
@@ -1908,8 +2214,10 @@ END
 
 Mouse input is straightforward. The coordinates track the cursor directly in pixel space, and the three button flags tell you what is being held at any moment.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 14.6 Choosing the Right Tool
 
 A quick summary:
@@ -1924,16 +2232,20 @@ A quick summary:
 
 The console tools - `INPUT`, `WAITKEY`, `INKEY` - work anywhere. The graphics tools - `KEYDOWN` and all mouse input - require a `SCREEN` to be open. Try to use them without one and they will not behave as expected.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ## 15.0 Files
 
 Everything your program does so far disappears the moment it ends. The score, the player's name, the settings - gone. Files are how a program remembers things between sessions.
 
 BazzBasic keeps file handling simple. A handful of commands cover everything you will need for most programs.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 15.1 Reading Files
 
 `FileRead` reads the contents of a file into a variable:
@@ -1945,8 +2257,10 @@ PRINT data$
 
 The entire file lands in `data$` as a single string. If the file does not exist, BazzBasic returns an empty string.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 15.2 Writing Files
 
 `FileWrite` creates a file - or overwrites it if it already exists:
@@ -1964,8 +2278,10 @@ FileAppend "log.txt", "Player scored 100.\n"
 
 Each call adds to the end. The file grows with each append.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 15.3 Checking and Deleting
 
 Before reading a file you are not certain exists, it is good practice to check first:
@@ -1987,8 +2303,10 @@ To remove a file entirely:
 FileDelete "temp.dat"
 ```
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 15.4 Key-Value Files
 
 Reading a whole file as one big string is useful, but BazzBasic can do something smarter. If you read a file into a `DIM`'d array instead of a plain variable, BazzBasic automatically parses lines in the `key=value` format into array entries:
@@ -2027,8 +2345,10 @@ FileWrite "settings.txt", settings$
 
 The file is created in `key=value` format automatically. Read it back with `FileRead` into a `DIM`'d array and you get exactly what you saved. The two round-trip perfectly.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 15.5 The .env Pattern
 
 The key-value format has one particularly useful application: configuration files. Many programs need settings that should not be hardcoded - API keys, usernames, server addresses. The convention is to store these in a file called `.env`:
@@ -2052,8 +2372,10 @@ Note that the values are stored as constants here - they are configuration that 
 
 One important thing: `.env` files often contain sensitive information like passwords or API keys. Never share them or include them in code you publish online. Keep them local, keep them private.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 15.6 Paths
 
 A few practical notes on how paths work in BazzBasic:
@@ -2073,8 +2395,10 @@ LET data$ = FILEREAD("C:\\Users\\Alice\\Documents\\save.txt")
 
 For most programs, relative paths are simpler and more portable. Keep your data files next to your program and you rarely need to think about paths at all.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 15.7 A Practical Example
 
 Here is a small program that saves and restores a player name and high score:
@@ -2115,14 +2439,18 @@ END
 
 Run it twice and the second time it remembers who you are. That is the whole idea.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ## 16.0 JSON and Arrays
 
 You already know BazzBasic arrays. You can store values by numeric index or by text key, mix both in the same array, and nest as many dimensions as you need. That flexibility is useful on its own - and it also makes JSON very natural in BazzBasic, because the two map directly onto each other.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 16.1 What Is JSON
 
 JSON is a text format for structured data. It is how most modern web services send and receive information, and how many programs store configuration or save files when key-value is not enough.
@@ -2156,8 +2484,10 @@ And they can nest - objects inside arrays, arrays inside objects, as deep as nee
 
 You do not need to write or parse JSON by hand in BazzBasic. Two commands handle the conversion in both directions.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 16.2 Array to JSON
 
 `ASJSON` converts a BazzBasic array into a JSON string:
@@ -2178,8 +2508,10 @@ Output:
 
 The array becomes a JSON object. Numeric keys become JSON arrays. String keys become object properties.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 16.3 JSON to Array
 
 `ASARRAY` goes the other direction - it parses a JSON string into a BazzBasic array:
@@ -2197,8 +2529,10 @@ PRINT result$("score")  ' 4200
 
 Note the doubled quotes `""` inside the string - that is BazzBasic's way of including a literal quote mark inside a string literal.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 16.4 Nested Data
 
 This is where BazzBasic's approach gets interesting. Nested JSON maps to arrays using **comma-separated keys**:
@@ -2239,8 +2573,10 @@ LET json$ = ASJSON(body$)
 
 That `body$` array, when converted, produces properly nested JSON with a `messages` array containing one object. No manual string building required.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 16.5 JSON Files
 
 For saving and loading JSON files directly, BazzBasic has two dedicated commands that are cleaner than combining `FileWrite` with `ASJSON`:
@@ -2260,8 +2596,10 @@ PRINT loaded$("alice")   ' 4200
 
 `SAVEJSON` and `LOADJSON` are the file equivalent of `ASJSON` and `ASARRAY` - they just read and write directly to disk without the intermediate string step.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 16.6 Putting It Together
 
 Here is a small program that keeps a scoreboard in a JSON file - adding a new entry each run and showing the full list:
@@ -2305,14 +2643,18 @@ END
 
 Each time it runs, a new entry is added. The file grows. The board is always current.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ## 17.0 Network
 
 Your program can talk to the internet. Not in a complicated way - BazzBasic keeps it as simple as reading a file. Two commands cover almost everything: one for fetching data, one for sending it.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 17.1 HTTPGET
 
 `HTTPGET` sends a GET request to a URL and returns the response as a string:
@@ -2326,8 +2668,10 @@ That is all there is to it. The entire response body lands in `response$`. If th
 
 GET requests are for fetching data. You are asking the server for something, not sending it anything.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 17.2 HTTPPOST
 
 `HTTPPOST` sends a POST request with a body:
@@ -2351,8 +2695,10 @@ PRINT result$
 
 Clean and readable.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 17.3 Headers
 
 Some services - most APIs - require additional headers alongside the request. Authentication tokens, content type declarations, API version identifiers. You pass these as an array:
@@ -2371,8 +2717,10 @@ The same optional headers parameter works with `HTTPPOST`:
 LET result$ = HTTPPOST("https://api.example.com/data", ASJSON(body$), headers$)
 ```
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 17.4 Working With Responses
 
 Responses from web APIs are almost always JSON. Parse them with `ASARRAY` and access fields the same way you learned in chapter 16:
@@ -2388,8 +2736,10 @@ PRINT result$("address,city")
 
 The nested comma-key notation handles any depth the response throws at you.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 17.5 Putting It All Together
 
 Here is where files, JSON, and network converge. This example calls the Anthropic Claude API - it reads an API key from a `.env` file, builds a JSON request body, sends it, and prints the response.
@@ -2458,14 +2808,18 @@ Let's walk through it section by section.
 
 Twenty-five lines. A working API call to one of the most capable AI systems in the world.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ## 18.0 Graphics and Sound
 
 Everything so far has been text on a console. That is enough for a surprising range of programs - but BazzBasic can do considerably more. This chapter opens the graphics screen, draws things on it, and adds sound.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 18.1 Opening a Screen
 
 One command switches from console to graphics mode:
@@ -2482,8 +2836,10 @@ SCREEN 12
 
 From this point on, the console is gone and you are drawing pixels. `PRINT` still works - it writes text into the graphics window - but the real tools are the drawing commands.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 18.2 Drawing
 
 **Clearing the screen**
@@ -2525,8 +2881,10 @@ CIRCLE (cx$, cy$), radius$, color           ' outline
 CIRCLE (cx$, cy$), radius$, color, 1        ' filled
 ```
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 18.3 Shapes and Images
 
 For anything more complex than basic primitives, BazzBasic has shapes and images. Both work as handles - stable integer references stored in constants.
@@ -2562,8 +2920,10 @@ Always clean up when done:
 REMOVESHAPE BALL#
 ```
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 18.4 SCREENLOCK
 
 This is the most important habit in graphics programming. Always wrap your drawing code between `SCREENLOCK ON` and `SCREENLOCK OFF`:
@@ -2578,8 +2938,10 @@ SCREENLOCK OFF
 
 `SCREENLOCK ON` starts buffering - nothing is shown on screen yet. `SCREENLOCK OFF` presents the finished frame all at once. Without it, the player sees each drawing operation as it happens, which produces visible flickering. With it, every frame appears clean and complete.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 18.5 The Game Loop
 
 Graphics programs follow a consistent pattern: check input, update state, draw, sleep, repeat.
@@ -2608,8 +2970,10 @@ RETURN
 
 `SLEEP 16` gives roughly 60 frames per second. `INKEY` checks for keypresses without blocking - the loop keeps running whether or not anything is pressed. `KEYDOWN` is available for held keys and simultaneous input, but requires graphics mode - which you now have.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 18.6 Sound
 
 Sound in BazzBasic follows the same handle pattern as shapes. Load at startup, store as a constant, use the handle everywhere:
@@ -2630,8 +2994,10 @@ SOUNDSTOPALL                   ' stop everything
 
 Load all sounds at startup. Call `SOUNDSTOPALL` before `END` - always.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 18.7 A Complete Example: Bouncing Ball
 
 Everything in one program. A yellow ball bounces around the screen, reversing direction when it hits a wall.
@@ -2687,9 +3053,10 @@ RETURN
 
 The structure is exactly the pattern from 18.5. `[inits]` sets everything up including opening the screen and loading the shape. `[main]` is the game loop. `[sub:update]` moves the ball and flips its direction on collision. `[sub:draw]` clears the screen and renders the frame. `REMOVESHAPE` cleans up before exit.
 
+[↑ Back to top](#top)
+
 ---
-
-
+ 
 ### 18.8 FastTrig For Performance
 
 Standard trig in BazzBasic works in radians:
@@ -2742,14 +3109,18 @@ END
 
 The rule is simple: if trig appears inside a loop that runs every frame, use `FastTrig`. If it is a one-off calculation, standard `SIN` and `COS` are fine.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 ### 18.9 What BazzBasic Can Do
 
 The tools from this chapter - `SCREEN`, `LINE`, `PSET`, `FastTrig`, `SCREENLOCK`, `KEYDOWN`, arrays - are the same tools behind some impressive programs already in the examples folder. These are worth opening and exploring.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 #### 18.9.1 2D Field of View in console
 
 `Fov_2D_demo.bas`
@@ -2757,8 +3128,10 @@ https://github.com/EkBass/BazzBasic/blob/main/Examples/Fov_2D_demo.bas
 
 A top-down maze with raycasting that runs entirely in the text console - no `SCREEN` command, no graphics mode. The player moves with arrow keys while 90 rays are cast each frame to calculate what cells are visible. Everything you see is `LOCATE`, `COLOR`, and `PRINT`. It is a good reminder that the console itself can do more than it seems.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 #### 18.9.2 Wolfenstein-style 3D Raycaster
 
 `Raycaster_3d_optimized.bas`
@@ -2766,8 +3139,10 @@ https://github.com/EkBass/BazzBasic/blob/main/Examples/Raycaster_3d_optimized.ba
 
 A Wolfenstein-style first-person 3D renderer. The same map from the FOV demo, now rendered as vertical wall slices with distance-based shading, fish-eye correction, and a minimap overlay. `FastTrig` drives the per-frame ray math across 180 rays. The frame rate holds well even on modest hardware. The full renderer - movement, input, 3D projection, minimap - fits in a single `.bas` file.
 
----
+[↑ Back to top](#top)
 
+---
+ 
 #### 18.9.3 Comanche-style Voxel Terrain
 
 `Voxel_terrain.bas`
@@ -2775,9 +3150,11 @@ https://github.com/EkBass/BazzBasic/blob/main/Examples/Voxel_terrain.bas
 
 A Comanche-style heightmap renderer with procedurally generated terrain. Eight smoothing passes turn random noise into hills, valleys, water, beaches, forests, rock, and snow - each assigned a color by height band. The camera can move, rotate, change altitude, and tilt the horizon. It is the heaviest of the three in terms of computation, but still runs smoothly enough to feel like a real flyover.
 
----
+[↑ Back to top](#top)
 
-## 20.0 Shelling Around
+---
+ 
+## 19.0 Shelling Around
 
 BazzBasic runs on Windows and hopefully in future at Linux too. 
 
@@ -2797,9 +3174,11 @@ By default, `SHELL` waits up to 5 seconds for the command to finish. For command
 LET result$ = SHELL("dir *.txt", 8000)
 ```
 
----
+[↑ Back to top](#top)
 
-### 20.1 What You Can Do With It
+---
+ 
+### 19.1 What You Can Do With It
 
 **List files**
 
@@ -2832,9 +3211,11 @@ The `>` redirects output directly to a file. Combine it with `FileRead` and you 
 LET r$ = SHELL("notepad.exe")
 ```
 
----
+[↑ Back to top](#top)
 
-### 20.2 Why This Matters
+---
+ 
+### 19.2 Why This Matters
 
 *SHELL* is the reason BazzBasic does not include built-in commands for everything. System information, zip compression, network pings — the command interpreter already does all of it. There is no point duplicating what is already there.
 
@@ -2856,9 +3237,12 @@ END IF
 LET temp$ = SHELL(SHELL_EXECUTE#)
 ```
 
----
+[↑ Back to top](#top)
 
-#### 20.2.1 Note About Linux Compatibility
+---
+ 
+
+#### 19.2.1 Note About Linux Compatibility
 
 At the time of writing this guide, BazzBasic has just advanced to version 1.2.
 
@@ -2866,13 +3250,19 @@ Technically, BazzBasic could be compiled for Linux already. C# + .NET10 + SDL2 a
 
 However, this is planned for version 1.5 or 1.6. I am mentioning it here now so the guide will not need updating when that version arrives.
 
----
+[↑ Back to top](#top)
 
-## 21.0 BazzBasic Libraries
+---
+ 
+## 20.0 BazzBasic Libraries
 
 BazzBasic supports pre-compiled libraries *(.bb files)* for code reuse. Libraries contain tokenized functions that load faster than source files and use automatic name prefixes to prevent naming conflicts.
 
-### 21.0.1 What is a Library?
+[↑ Back to top](#top)
+
+---
+ 
+### 20.0.1 What is a Library?
 
 A library is a collection of user-defined functions compiled into a binary format. When you create a library:
 
@@ -2880,7 +3270,11 @@ A library is a collection of user-defined functions compiled into a binary forma
 2. Function names get a prefix based on the filename
 3. The result is saved as a .bb file
 
-### 21.0.2 Creating a Library
+[↑ Back to top](#top)
+
+---
+ 
+### 20.0.2 Creating a Library
 
 **Step 1: Write your library source**
 
@@ -2939,7 +3333,11 @@ Output:
 5 * 3 = 15
 ```
 
-### 21.0.3 Naming Convention
+[↑ Back to top](#top)
+
+---
+ 
+### 20.0.3 Naming Convention
 
 | Source file | Library name | Function prefix |
 | :--- | :--- | :--- |
@@ -2949,7 +3347,11 @@ Output:
 
 Original function *add$()* becomes *MATHLIB_add$()* when compiled from *MathLib.bas*.
 
-### 21.0.4 Accessing Main Program Constants
+[↑ Back to top](#top)
+
+---
+ 
+### 20.0.4 Accessing Main Program Constants
 
 Libraries cannot define constants, but library functions can access constants defined in the main program:
 
@@ -2973,14 +3375,22 @@ END DEF
 
 This allows libraries to work with application-specific values without hardcoding them.
 
-### 21.0.5 Library Rules
+[↑ Back to top](#top)
+
+---
+ 
+### 20.0.5 Library Rules
 
 1. Functions only - Libraries cannot contain variables, constants, or loose code
 2. Automatic prefix - All functions get the library name as prefix
 3. No conflicts - Multiple libraries can have functions with the same base name
 4. Binary format - .bb files are not human-readable
 
-### 21.0.6 Error Handling
+[↑ Back to top](#top)
+
+---
+ 
+### 20.0.6 Error Handling
 
 **Invalid library content**
 ```basic
@@ -2995,7 +3405,11 @@ Library validation failed:
 Error: Line 1: Library not found: missing.bb
 ```
 
-### 21.0.7 Benefits of Libraries
+[↑ Back to top](#top)
+
+---
+ 
+### 20.0.7 Benefits of Libraries
 
 1. Faster loading - Pre-tokenized code loads instantly
 2. No name conflicts - Automatic prefixes prevent collisions
@@ -3004,7 +3418,11 @@ Error: Line 1: Library not found: missing.bb
 
 **Note:** For small files, i.e., files with only a few functions, the *.bas* file may be smaller than the tokenized *.bb* file. This is due to the metadata overhead in the tokenized format. But as the file size increases, the size advantage turns to the tokenized file.
 
-### 21.0.8 Distributing Libraries
+[↑ Back to top](#top)
+
+---
+ 
+### 20.0.8 Distributing Libraries
 
 When distributing your program with libraries:
 
@@ -3017,11 +3435,19 @@ MyGame/
 ```
 Libraries must be in the same directory as the main program, or in a subfolder relative to it.
 
-## 22.0 Compiling to EXE
+[↑ Back to top](#top)
+
+---
+ 
+## 21.0 Compiling to EXE
 
 BazzBasic can package your BASIC program into a standalone .exe file.
 
-### 22.0.1 Usage
+[↑ Back to top](#top)
+
+---
+ 
+### 21.0.1 Usage
 
 ```
 bazzbasic.exe -exe yourprogram.bas
@@ -3029,8 +3455,11 @@ bazzbasic.exe -exe yourprogram.bas
 
 This creates *yourprogram.exe* in the same folder as the .bas file.
 
+[↑ Back to top](#top)
 
-### 22.0.2 Required Files for Distribution
+---
+ 
+### 21.0.2 Required Files for Distribution
 
 The standalone *.exe* may need two additional files:
 
@@ -3062,7 +3491,11 @@ mygame/
 └── SDL2.dll
 ```
 
-### 22.0.3 Recommended Distribution with Assets
+[↑ Back to top](#top)
+
+---
+ 
+### 21.0.3 Recommended Distribution with Assets
 
 ```
 mygame/
@@ -3077,7 +3510,11 @@ mygame/
     └── music.mp3
 ```
 
-### 22.0.4 Where to Find SDL2.dll
+[↑ Back to top](#top)
+
+---
+ 
+### 21.0.4 Where to Find SDL2.dll
 
 **Binary download:**
 
@@ -3099,13 +3536,21 @@ BazzBasic\bin\Release\net10.0-windows\publish\
 
 Copy SDL2.dll alongside your packaged exe.
 
-### 22.0.5 Notes
+[↑ Back to top](#top)
+
+---
+ 
+### 21.0.5 Notes
 
 - The packaged exe contains the full BazzBasic interpreter.
 - File paths in your BASIC code are relative to the exe location.
 - INCLUDE files are processed at packaging time (embedded in exe).
 
-### 22.0.6 .NET Runtime Requirement
+[↑ Back to top](#top)
+
+---
+ 
+### 21.0.6 .NET Runtime Requirement
 
 The packaged exe inherits the same runtime requirements as the BazzBasic.exe used to create it:
 
@@ -3121,7 +3566,11 @@ dotnet publish -c Release -r win-x64 --self-contained true
 
 Then use that published BazzBasic.exe for packaging your programs.
 
-## 23.0 AI-Assisted Learning
+[↑ Back to top](#top)
+
+---
+ 
+## 22.0 AI-Assisted Learning
 
 I used the existing documentation and dozens of example programs that I gave to *Claude.AI*, *ChatGPT* and *Mistral Le Chat* for review.
 
@@ -3135,14 +3584,21 @@ The guide is available for download on the Hugging Face server at: https://huggi
 
 I will update it as BazzBasic develops, so it is worth downloading the latest edition from time to time.
 
+[↑ Back to top](#top)
 
-## 24.0 More Functions and Features
+---
+ 
+## 23.0 More Functions and Features
 
 BazzBasic (ver. 1.2) includes nearly 100 functions and features and we simply cannot cover them all in this type of beginner's guide.
 
 But for a beginner, there are a few that might be more interesting than others and I will list a few of them here.
 
-### 24.1 Mathematical Functions
+[↑ Back to top](#top)
+
+---
+ 
+### 23.1 Mathematical Functions
 
 - [BETWEEN(min$, max$)](https://ekbass.github.io/BazzBasic/manual/#/math_functions?id=betweenn-min-max) - Returns TRUE, if n is between min and max.
 - [CLAMP(n$, min$, max$)](https://ekbass.github.io/BazzBasic/manual/#/math_functions?id=clampn-min-max) - If the given parameter n falls below or exceeds the given limit values min or max, it is returned within the limits.
@@ -3152,7 +3608,11 @@ But for a beginner, there are a few that might be more interesting than others a
 
 See them all: [Mathematical functions](https://ekbass.github.io/BazzBasic/manual/#/math_functions)
 
-### 24.2 String Functions
+[↑ Back to top](#top)
+
+---
+ 
+### 23.2 String Functions
 
 - [BASE64DECODE(s$) & BASE64ENCODE(s$)](https://ekbass.github.io/BazzBasic/manual/#/string_functions?id=base64decodes-amp-base64encodes) - Decodes and encodes Base64
 - [INVERT(s$)](https://ekbass.github.io/BazzBasic/manual/#/string_functions?id=inverts) - Inverts a string.
@@ -3162,13 +3622,21 @@ See them all: [Mathematical functions](https://ekbass.github.io/BazzBasic/manual
 
 See them all: [String functions](https://ekbass.github.io/BazzBasic/manual/#/string_functions)
 
-### 24.3 Other Functions
+[↑ Back to top](#top)
+
+---
+ 
+### 23.3 Other Functions
 
 - [RGB(r$, g$, b$)](https://ekbass.github.io/BazzBasic/manual/#/other_functions?id=rgbr-g-b) - Creates a color value from red, green, and blue components (0-255 each).
 - [TIME(format$)](https://ekbass.github.io/BazzBasic/manual/#/other_functions?id=timeformat) - Returns current date/time as a formatted string. Uses .NET DateTime format strings.
 - [TICKS](https://ekbass.github.io/BazzBasic/manual/#/other_functions?id=ticks) - Returns milliseconds elapsed since program started. Useful for timing, animations, and game loops.
 
-### 24.4 Links
+[↑ Back to top](#top)
+
+---
+ 
+### 23.4 Links
 
 **BazzBasic:**
 - BazzBasic homepage: https://ekbass.github.io/BazzBasic/
@@ -3195,7 +3663,11 @@ See them all: [String functions](https://ekbass.github.io/BazzBasic/manual/#/str
 - BazzBasic changes.md file: https://github.com/EkBass/BazzBasic/blob/main/changes.md
 - BazzBasic LICENSE.txt file: https://github.com/EkBass/BazzBasic/blob/main/LICENSE.txt
 
-## 25.0 Final Words
+[↑ Back to top](#top)
+
+---
+ 
+## 24.0 Final Words
 
 Congratulations and thank you. You have now read through the entire guide and have certainly — or at least hopefully — learned what BazzBasic has to offer and what you can do with it.
 
@@ -3213,3 +3685,9 @@ PRINT "Made with BASIC-flavoured stubbornness and several cups of coffee."
 PRINT "Kristian Virtanen (EkBass), author of BazzBasic"
 END
 ```
+
+[↑ Back to top](#top)
+
+---
+ 
+EOF
