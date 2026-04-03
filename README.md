@@ -1,2 +1,15 @@
-# BazzBasic-Starters-Guide
-BazzBasic Starter's Guide
+# BazzBasic Starter's Guide
+
+A beginner's guide to [BazzBasic](https://ekbass.github.io/BazzBasic/) — a modern BASIC interpreter for Windows.
+
+This guide covers everything you need to get started: variables, loops, conditions, 
+functions, file handling, JSON, networking, graphics, sound, and more. 
+Each chapter builds on the last, with working example programs throughout.
+
+This is not a complete reference. It is a starting point.  
+The full [BazzBasic manual](https://ekbass.github.io/BazzBasic/manual/#/) covers everything else.
+
+---
+
+**Author:** Kristian Virtanen (EkBass)  
+**License:** [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/) — free to share with attribution, translations permitted, modifications are not permitted.
