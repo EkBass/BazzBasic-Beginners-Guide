@@ -1,4 +1,4 @@
-# BazzBasic Starter's Guide
+# BazzBasic Beginner's Guide
 
 A beginner's guide to [BazzBasic](https://ekbass.github.io/BazzBasic/) — a modern BASIC interpreter for Windows.
 
