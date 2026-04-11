@@ -3071,21 +3071,60 @@ REMOVESHAPE BALL#
 
 #### 18.3.1 DRAWSTRING & LOADFONT
 
+Render text directly to the SDL2 graphics surface. Requires `SDL2_ttf.dll` in the same directory as the interpreter.
+
 ```basic
-' Default font (Arial)
+' Default font (Arial, size 20)
 DRAWSTRING "Hello!", 100, 200, RGB(255, 255, 255)
 
-' Load alternative font — becomes the new default
-LOADFONT "comic.ttf", 24
+' Load alternative font — becomes the new active font
+LOADFONT "myfont.ttf", 24
 DRAWSTRING "Hello!", 100, 200, RGB(255, 255, 255)
 
-' Reset to Arial
+' Reset to default (Arial, size 20)
 LOADFONT
 ```
 
-`DRAWSTRING x, y` positions the top-left of the text.  
-Requires SDL2_ttf.dll to be in the same directory as the interpreter.  
-Prefer this over PRINT in graphics mode, as PRINT can cause visible flickering on the graphics screen.
+`DRAWSTRING` positions text by its **top-left corner**. Prefer it over `PRINT` in graphics mode — `PRINT` bypasses the SDL2 rendering pipeline and causes flickering at higher frame rates.
+
+##### 18.3.1.1 Fonts
+
+SDL2_ttf loads any standard `.ttf` or `.otf` font file. BazzBasic defaults to **Arial** (size 20). To use a different font, call `LOADFONT` with a font filename and point size. The loaded font stays active until you call `LOADFONT` again or reset it.
+
+**Bundling fonts with your program (recommended)**
+
+Copy the `.ttf` file into the same folder as your `.bas` file and reference it by filename:
+
+```basic
+LOADFONT "PressStart2P.ttf", 16
+DRAWSTRING "GAME OVER", 200, 200, RGB(255, 0, 0)
+```
+
+This makes your program portable and not dependent on the fonts installed on the user's system. Free fonts are widely available — [Google Fonts](https://fonts.google.com) offers hundreds under the OFL open-source licence.
+
+##### 18.3.2 Using Windows system fonts
+
+You can also reference fonts already installed on Windows by full path:
+
+```basic
+LOADFONT "C:\\Windows\\Fonts\\consola.ttf", 14   ' Consolas (monospace)
+LOADFONT "C:\\Windows\\Fonts\\times.ttf", 18     ' Times New Roman
+```
+
+Note: this works only on Windows and only if the font is installed — not recommended for distributed programs.
+
+##### 18.3.1.3 Font sizes
+
+The size parameter is a point size — any positive integer is valid:
+
+| Use | Size |
+|-----|------|
+| Small UI / HUD text | 12–14 |
+| Normal text | 16–20 |
+| Subheadings | 24–32 |
+| Titles / headings | 48–64 |
+| Splash screens | 72–96 |
+
 
 [↑ Back to top](#top)
 
